@@ -15,6 +15,28 @@
   </form>
   <hr>
   <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
-    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary w-auto" data-bs-toggle="modal" data-bs-target="#DeleteMod">
+    Delete Post
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="DeleteMod" tabindex="-1" aria-labelledby="DeleteModLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="DeleteModLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are You sure?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
 {% endblock %}
