@@ -32,11 +32,11 @@ An in-depth paragraph about your project and overview of use.
 pip install -r requirements.txt
 ```
 ```
-flask --app flaskr init-db
+flask --app KEVTrackr init-db
 ```
  
 ```
-flask --app flaskr run
+flask --app KEVTrackr run
 ```
 ## Help
  
