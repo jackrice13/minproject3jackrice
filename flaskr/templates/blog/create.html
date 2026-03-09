@@ -4,6 +4,15 @@
   <h1>{% block title %}New Post{% endblock %}</h1>
 {% endblock %}
 
+{% block breadcrumbs %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ url_for('blog.index') }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">New Post</li>
+    </ol>
+  </nav>
+{% endblock %}
+
 {% block content %}
   <form method="post">
     <label for="title">Title</label>

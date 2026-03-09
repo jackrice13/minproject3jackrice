@@ -19,6 +19,7 @@
   <header>
     {% block header %}{% endblock %}
   </header>
+   {% block breadcrumbs %}{% endblock %}
   {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
