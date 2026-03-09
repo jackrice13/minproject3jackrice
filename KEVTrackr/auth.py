@@ -15,6 +15,9 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        location = request.form['location']
         db = get_db()
         error = None
 
@@ -25,9 +28,20 @@ def register():
 
         if error is None:
             try:
+                #create user/pwd
                 db.execute(
                     "INSERT INTO user (username, password) VALUES (?, ?)",
                     (username, generate_password_hash(password)),
+                    )
+                    # Get the new user's ID that just created
+                user=db.execute(
+                    "SELECT id FROM user WHERE username = ?", (username,)
+                ).fetchone()
+
+                # Insert the profile using that user ID
+                db.execute(
+                     "INSERT INTO profile (user_id, first_name, last_name, location) VALUES (?, ?, ?, ?)",
+                     (user['id'], first_name, last_name, location),
                 )
                 db.commit()
             except db.IntegrityError:
