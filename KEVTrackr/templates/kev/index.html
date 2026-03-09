@@ -14,7 +14,13 @@
 
 {% block content %}
   {% if kevs %}
-    <table class="table">
+    <table
+      id="myTable"
+      data-toggle="table"
+      data-pagination="true"
+      data-page-size="10"
+      data-search="true"
+      class="table table-striped">
       <thead>
         <tr>
           <th>CVE ID</th>
@@ -22,7 +28,7 @@
           <th>Product</th>
           <th>Vulnerability</th>
           <th>Date Added</th>
-          <th>Required Action</th>
+<!--          <th>Required Action</th>-->
           <th>Due Date</th>
         </tr>
       </thead>
@@ -34,7 +40,7 @@
             <td>{{ kev['product'] }}</td>
             <td>{{ kev['vulnerability_name'] }}</td>
             <td>{{ kev['date_added'] }}</td>
-            <td>{{ kev['required_action'] }}</td>
+<!--            <td>{{ kev['required_action'] }}</td>-->
             <td>{{ kev['due_date'] }}</td>
           </tr>
         {% endfor %}
