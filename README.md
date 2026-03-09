@@ -28,16 +28,25 @@ An in-depth paragraph about your project and overview of use.
  
 * How to run the program
 * Step-by-step bullets
+
+
+Install all required Python packages by running:
 ```
 pip install -r requirements.txt
 ```
+Initialize the database
+Create the SQLite database and build all required tables by running
 ```
 flask --app KEVTrackr init-db
 ```
+Download KEV data
+Pull the latest Known Exploited Vulnerabilities from the CISA feed and prepopulates the database by running, currently gets the last 30 days of data:
+
 ```
 flask --app KEVTrackr download-kev
 ```
- 
+Start the application
+Launch the Flask development server by running:
 ```
 flask --app KEVTrackr run
 ```
