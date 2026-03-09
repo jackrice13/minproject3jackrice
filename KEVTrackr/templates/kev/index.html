@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}KEV Entries{% endblock %}</h1>
+{% endblock %}
+
+{% block breadcrumbs %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">KEV Entries</li>
+    </ol>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  {% if kevs %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>CVE ID</th>
+          <th>Vendor</th>
+          <th>Product</th>
+          <th>Vulnerability</th>
+          <th>Date Added</th>
+          <th>Required Action</th>
+          <th>Due Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for kev in kevs %}
+          <tr>
+            <td>{{ kev['cve_id'] }}</td>
+            <td>{{ kev['vendor_project'] }}</td>
+            <td>{{ kev['product'] }}</td>
+            <td>{{ kev['vulnerability_name'] }}</td>
+            <td>{{ kev['date_added'] }}</td>
+            <td>{{ kev['required_action'] }}</td>
+            <td>{{ kev['due_date'] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No KEV entries found. Run <code>flask --app KEVTrackr download-kev</code> to populate.</p>
+  {% endif %}
+{% endblock %}

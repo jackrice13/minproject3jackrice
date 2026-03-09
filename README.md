@@ -34,6 +34,9 @@ pip install -r requirements.txt
 ```
 flask --app KEVTrackr init-db
 ```
+```
+flask --app KEVTrackr download-kev
+```
  
 ```
 flask --app KEVTrackr run
