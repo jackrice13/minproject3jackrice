@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit Profile{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" id="first_name"
+      value="{{ profile['first_name'] or '' }}" required>
+
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" id="last_name"
+      value="{{ profile['last_name'] or '' }}">
+
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location"
+      value="{{ profile['location'] or '' }}">
+
+    <input type="submit" value="Save Changes">
+  </form>
+{% endblock %}
