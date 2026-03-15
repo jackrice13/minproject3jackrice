@@ -20,11 +20,11 @@
 <div id="toolbar">
   {% if g.user %}
     {% if filter_tracked %}
-      <a href="{{ url_for('kev.index') }}" class="btn btn-success">
+      <a href="{{ url_for('kev.index') }}" class="btn btn-info">
         Clear Filter
       </a>
     {% else %}
-      <a href="{{ url_for('kev.index', filter='tracked') }}" class="btn btn-outline-success">
+      <a href="{{ url_for('kev.index', filter='tracked') }}" class="btn btn-outline-primary">
         Filter by My Companies
       </a>
     {% endif %}
