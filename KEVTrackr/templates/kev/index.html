@@ -24,6 +24,24 @@
       data-search="true"
       data-search-placeholder="Search..."
       class="table table-striped">
+      <!-- Filter toggle button -->
+<div class="mb-3">
+  {% if g.user %}
+    {% if filter_tracked %}
+      <a href="{{ url_for('kev.index') }}" class="btn btn-success">
+        ✅ My Companies — Click to show all
+      </a>
+    {% else %}
+      <a href="{{ url_for('kev.index', filter='tracked') }}" class="btn btn-outline-success">
+        🏢 Filter by My Companies
+      </a>
+    {% endif %}
+  {% else %}
+    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary">
+      Log in to filter by your companies
+    </a>
+  {% endif %}
+</div>
       <thead>
         <tr>
           <th>CVE ID</th>

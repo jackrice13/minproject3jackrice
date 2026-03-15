@@ -57,3 +57,11 @@ CREATE TABLE kev (
   FOREIGN KEY (company_id) REFERENCES company (id),
   UNIQUE (company_id, cve_id)         -- unique on cve_id not vendor_project
 );
+CREATE TABLE IF NOT EXISTS tracked_companies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    vendor_name TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user (id),
+    UNIQUE (user_id, vendor_name)
+);

@@ -3,6 +3,14 @@
 {% block header %}
   <h1>{% block title %}Edit Profile{% endblock %}</h1>
 {% endblock %}
+{% block breadcrumbs %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ url_for('kev.index') }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Profile</li>
+    </ol>
+  </nav>
+{% endblock %}
 
 {% block content %}
   <form method="post">

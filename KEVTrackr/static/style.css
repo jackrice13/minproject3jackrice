@@ -48,7 +48,7 @@ nav ul li a, nav ul li span {
 nav ul li a:hover { background: #21262d; color: #e6edf3; }
 
 /* ── Content ── */
-.content { padding: 0.5rem 1.5rem; }
+.content { padding: 0.0rem 1.5rem; }
 .content > header {
   /*border-bottom: 1px solid #30363d;*/
   display: flex;
@@ -115,11 +115,17 @@ input.danger { color: #f85149; }
   background-color: transparent;
   color: #e6edf3;
 }
-
+.bootstrap-table .fixed-table-toolbar {
+  padding-top: 0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+}
 .bootstrap-table .fixed-table-toolbar .search input {
   background-color: #0d1117;
   border: 1px solid #30363d;
-  border-radius: 6px;
+  margin-bottom: 0;
+  margin-top: 0;
+  border-radius: 2px;
   color: #e6edf3;
   padding: 0.4rem 0.75rem;
 }
@@ -145,7 +151,7 @@ nav[aria-label="breadcrumb"] {
   padding: 0;
   border-bottom: none;
   margin-bottom: 0.25rem;
-  margin-top: 0.25rem;
+  margin-top: 0.0rem;
 }
 
 /*old base CSS
