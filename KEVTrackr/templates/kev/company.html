@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Company List{% endblock %}</h1>
+{% endblock %}
+
+{% block breadcrumbs %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Companies</li>
+    </ol>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  {% if company %}
+    <table
+      id="companyTable"
+      data-toggle="table"
+      data-pagination="true"
+      data-page-size="10"
+      data-search="true"
+      class="table table-striped">
+      <thead>
+        <tr>
+          <th>Company ID</th>
+          <th>Company</th>
+          <th>Something Else</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for kev in company %}
+          <tr>
+            <td>{{ kev['id'] }}</td>
+            <td>{{ kev['company_name'] }}</td>
+            <td></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No company entries found.</p>
+  {% endif %}
+{% endblock %}

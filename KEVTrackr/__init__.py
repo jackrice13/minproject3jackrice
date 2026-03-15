@@ -36,6 +36,9 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.bp)
 
+    from . import companylist
+    app.register_blueprint(companylist.bp)
+
     from . import kevlist
     app.register_blueprint(kevlist.bp)
     app.add_url_rule('/', endpoint='kev.index', view_func=kevlist.index)

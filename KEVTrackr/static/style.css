@@ -1,26 +1,162 @@
-html { font-family: sans-serif; background: #eee; padding: 1rem; display: flex; justify-content: center; min-height: 100vh; }
-body { max-width: 960px; margin: 0 auto; background: white; width: 100%; }
-h1 { font-family: serif; color: #377ba8; margin: 1rem 0; }
-a { color: #377ba8; }
-hr { border: none; border-top: 1px solid lightgray; }
-nav { background: lightgray; display: flex; align-items: center; padding: 0 0.5rem; }
-nav h1 { flex: auto; margin: 0; }
-nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }
-nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
-nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
-.content { padding: 0 1rem 1rem; }
-.content > header { border-bottom: 1px solid lightgray; display: flex; align-items: flex-end; }
-.content > header h1 { flex: auto; margin: 1rem 0 0.25rem 0; }
-.flash { margin: 1em 0; padding: 1em; background: #cae6f6; border: 1px solid #377ba8; }
-.post > header { display: flex; align-items: flex-end; font-size: 0.85em; }
-.post > header > div:first-of-type { flex: auto; }
-.post > header h1 { font-size: 1.5em; margin-bottom: 0; }
-.post .about { color: slategray; font-style: italic; }
-.post .body { white-space: pre-line; }
-.content:last-child { margin-bottom: 0; }
+/* ── Base ── */
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: #0d1117;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+body {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    background: #0d1117;
+    color: #e6edf3;
+}
+
+/* ── Nav ── */
+nav {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 56px;
+}
+nav h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #58a6ff;
+  margin: 0;
+  flex: auto;
+  letter-spacing: 0.04em;
+}
+nav h1 a { text-decoration: none; color: inherit; }
+nav ul  { display: flex; list-style: none; margin: 0; padding: 0; gap: 0.25rem; }
+nav ul li a, nav ul li span {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 6px;
+}
+nav ul li a:hover { background: #21262d; color: #e6edf3; }
+
+/* ── Content ── */
+.content { padding: 2rem 1.5rem; }
+.content > header {
+  border-bottom: 1px solid #30363d;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.content > header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e6edf3;
+  flex: auto;
+  margin: 0;
+}
+
+/* ── Flash messages ── */
+.flash {
+  background: #1c2433;
+  border: 1px solid #388bfd55;
+  border-left: 3px solid #388bfd;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #79c0ff;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Forms ── */
 .content form { margin: 1em 0; display: flex; flex-direction: column; }
-.content label { font-weight: bold; margin-bottom: 0.5em; }
-.content input, .content textarea { margin-bottom: 1em; }
+.content label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+.content input, .content textarea {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1em;
+  outline: none;
+}
+.content input:focus, .content textarea:focus { border-color: #388bfd; }
 .content textarea { min-height: 12em; resize: vertical; }
-input.danger { color: #cc2f2e; }
-input[type=submit], button.btn { align-self: start; min-width: 10em; }
+
+/* ── Links ── */
+a { color: #58a6ff; }
+a:hover { color: #79c0ff; }
+
+/* ── Misc ── */
+h1 { color: #e6edf3; }
+hr { border: none; border-top: 1px solid #30363d; }
+input.danger { color: #f85149; }
+/* ── Bootstrap Table overrides ── */
+.bootstrap-table .fixed-table-toolbar,
+.bootstrap-table .fixed-table-toolbar .search input,
+.bootstrap-table .fixed-table-container {
+  background-color: transparent;
+  color: #e6edf3;
+}
+
+.bootstrap-table .fixed-table-toolbar .search input {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  padding: 0.4rem 0.75rem;
+}
+
+.bootstrap-table .fixed-table-toolbar .search input:focus {
+  outline: none;
+  border-color: #388bfd;
+}
+
+/* ── Breadcrumb override ── */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+}
+
+
+/*old base CSS
+/*html { font-family: sans-serif; background: #eee; padding: 1rem; display: flex; justify-content: center; min-height: 100vh; }*/
+/*body { max-width: 960px; margin: 0 auto; background: white; width: 100%; }*/
+/*h1 { font-family: serif; color: #377ba8; margin: 1rem 0; }*/
+/*a { color: #377ba8; }*/
+/*hr { border: none; border-top: 1px solid lightgray; }*/
+/*nav { background: lightgray; display: flex; align-items: center; padding: 0 0.5rem; }*/
+/*nav h1 { flex: auto; margin: 0; }*/
+/*nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }*/
+/*nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }*/
+/*nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }*/
+/*.content { padding: 0 1rem 1rem; }*/
+/*.content > header { border-bottom: 1px solid lightgray; display: flex; align-items: flex-end; }*/
+/*.content > header h1 { flex: auto; margin: 1rem 0 0.25rem 0; }*/
+/*.flash { margin: 1em 0; padding: 1em; background: #cae6f6; border: 1px solid #377ba8; }*/
+/*.post > header { display: flex; align-items: flex-end; font-size: 0.85em; }*/
+/*.post > header > div:first-of-type { flex: auto; }*/
+/*.post > header h1 { font-size: 1.5em; margin-bottom: 0; }*/
+/*.post .about { color: slategray; font-style: italic; }*/
+/*.post .body { white-space: pre-line; }*/
+/*.content:last-child { margin-bottom: 0; }*/
+/*.content form { margin: 1em 0; display: flex; flex-direction: column; }*/
+/*.content label { font-weight: bold; margin-bottom: 0.5em; }*/
+/*.content input, .content textarea { margin-bottom: 1em; }*/
+/*.content textarea { min-height: 12em; resize: vertical; }*/
+/*input.danger { color: #cc2f2e; }*/
+/*input[type=submit], button.btn { align-self: start; min-width: 10em; }*/

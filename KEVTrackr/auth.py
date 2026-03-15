@@ -132,10 +132,8 @@ def profile():
 
         flash(error)
 
-        profile = db.execute(
-        "SELECT * FROM profile WHERE user_id = ?", (user_id,)
+    profile = db.execute(
+    "SELECT * FROM profile WHERE user_id = ?", (user_id,)
     ).fetchone()
 
     return render_template('auth/profile.html', profile=profile)
-
-    return wrapped_view
