@@ -25,13 +25,15 @@ nav {
 }
 
 nav h1 {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #58a6ff;
   margin: 0;
   flex: auto;
-  letter-spacing: 0.04em;
+}
+
+nav h1 img {
+  display: block;
+  object-fit: cover;
+  height: 45px;
+  width: auto;
 }
 nav h1 a { text-decoration: none; color: inherit; }
 nav ul  { display: flex; list-style: none; margin: 0; padding: 0; gap: 0.25rem; }
