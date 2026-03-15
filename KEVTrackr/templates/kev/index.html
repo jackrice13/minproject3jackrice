@@ -15,25 +15,17 @@
 
 
 {% block content %}
-  {% if kevs %}
-    <table
-      id="myTable"
-      data-toggle="table"
-      data-pagination="true"
-      data-page-size="10"
-      data-search="true"
-      data-search-placeholder="Search..."
-      class="table table-striped">
-      <!-- Filter toggle button -->
-<div class="mb-3">
+
+<!-- Filter toggle button -->
+<div id="toolbar">
   {% if g.user %}
     {% if filter_tracked %}
       <a href="{{ url_for('kev.index') }}" class="btn btn-success">
-        ✅ My Companies — Click to show all
+        Clear Filter
       </a>
     {% else %}
       <a href="{{ url_for('kev.index', filter='tracked') }}" class="btn btn-outline-success">
-        🏢 Filter by My Companies
+        Filter by My Companies
       </a>
     {% endif %}
   {% else %}
@@ -42,6 +34,16 @@
     </a>
   {% endif %}
 </div>
+  {% if kevs %}
+        <table
+        id="myTable"
+        data-toggle="table"
+        data-pagination="true"
+        data-page-size="10"
+        data-search="true"
+        data-search-placeholder="Search..."
+        data-toolbar="#toolbar"
+        class="table table-striped">
       <thead>
         <tr>
           <th>CVE ID</th>
