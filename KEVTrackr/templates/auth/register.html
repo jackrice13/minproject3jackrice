@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
+{#Page Title#}
 {% block header %}
   <h1>{% block title %}Register{% endblock %}</h1>
 {% endblock %}
-
+{#Bread Crumb Code#}
 {% block breadcrumbs %}
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -13,6 +14,7 @@
   </nav>
 {% endblock %}
 
+{#Register Section#}
 {% block content %}
   <form method="post">
     <label for="username">Username</label>

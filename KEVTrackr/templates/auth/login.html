@@ -1,9 +1,10 @@
+{#Login Page#}
 {% extends 'base.html' %}
 
 {% block header %}
   <h1>{% block title %}Log In{% endblock %}</h1>
 {% endblock %}
-
+{#Bread Crumb Code#}
 {% block breadcrumbs %}
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -12,7 +13,7 @@
     </ol>
   </nav>
 {% endblock %}
-
+{#Login#}
 {% block content %}
   <form method="post">
     <label for="username">Username</label>
