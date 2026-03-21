@@ -25,24 +25,23 @@ def create_app(test_config=None):
     # @app.route('/hello')
     # def hello():
     #     return 'Hello, World!'
-
+    # DB setup
     from . import db
     db.init_app(app)
-
+    #used to prepopulate the KEV DB.
     from .kev import download_kev_command
     app.cli.add_command(download_kev_command)
-
-
+    #Auth Function, mostly from classwork
     from . import auth
     app.register_blueprint(auth.bp)
-
+    #Vendor List Page
     from . import companylist
     app.register_blueprint(companylist.bp)
-
+    #List function for home page
     from . import kevlist
     app.register_blueprint(kevlist.bp)
     app.add_url_rule('/', endpoint='kev.index', view_func=kevlist.index)
-
+    #Vendor Subscription Page
     from . import companies
     app.register_blueprint(companies.bp)
 

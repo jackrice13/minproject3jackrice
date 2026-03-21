@@ -88,7 +88,7 @@ def load_logged_in_user():
             'SELECT * FROM user WHERE id = ?', (user_id,)
         ).fetchone()
 
-
+#Logout Function
 @bp.route('/logout')
 def logout():
     session.clear()
@@ -104,6 +104,7 @@ def login_required(view):
 
     return wrapped_view
 
+#Profile page to track some basic user information
 @bp.route('/profile', methods=('GET', 'POST'))
 def profile():
     db = get_db()

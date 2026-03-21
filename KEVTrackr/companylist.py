@@ -3,6 +3,7 @@ from KEVTrackr.db import get_db
 
 bp = Blueprint('companylist', __name__, url_prefix='/companylist')
 
+# Just a page to list all vendors in the DB.
 @bp.route('/')
 def companylist():
     db = get_db()

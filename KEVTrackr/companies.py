@@ -10,7 +10,7 @@ bp = Blueprint('companies', __name__, url_prefix='/companies')
 def index():
     db = get_db()
 
-    # Get every unique vendor name from the KEV catalog, sorted A-Z
+    # Get every vendor name from the KEV catalog, sorted A-Z
     all_vendors = db.execute(
         'SELECT DISTINCT vendor_project FROM kev ORDER BY vendor_project ASC'
     ).fetchall()
@@ -21,15 +21,13 @@ def index():
         (g.user['id'],)
     ).fetchall()
 
-    # Turn the tracked list into a plain Python set for easy lookup in the template
-    # e.g. {'Microsoft', 'Cisco', 'Apache'}
     tracked_set = {row['vendor_name'] for row in tracked}
 
     return render_template('companies/index.html',
                            all_vendors=all_vendors,
                            tracked_set=tracked_set)
 
-
+#Method to add a new vendor to follow
 @bp.route('/follow', methods=['POST'])
 @login_required
 def follow():
@@ -44,12 +42,10 @@ def follow():
         db.commit()
         flash(f'Now tracking {vendor_name}', 'success')
     except db.IntegrityError:
-        # UNIQUE constraint fired — they already follow this company
         flash(f'You are already tracking {vendor_name}', 'warning')
-
     return redirect(url_for('companies.index'))
 
-
+# Method to unfollow a vendor
 @bp.route('/unfollow', methods=['POST'])
 @login_required
 def unfollow():
