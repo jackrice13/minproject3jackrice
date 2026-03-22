@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+<!--This page is basically diagnostic, so that I can track companies listed in the DB-->
 {% block header %}
   <h1>{% block title %}Company List{% endblock %}</h1>
 {% endblock %}
@@ -26,7 +26,7 @@
         <tr>
           <th>Company ID</th>
           <th>Company</th>
-          <th>Something Else</th>
+<!--          <th>Something Else</th>-->
         </tr>
       </thead>
       <tbody>
@@ -34,7 +34,7 @@
           <tr>
             <td>{{ kev['id'] }}</td>
             <td>{{ kev['company_name'] }}</td>
-            <td></td>
+<!--            <td></td>-->
           </tr>
         {% endfor %}
       </tbody>
